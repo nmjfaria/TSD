@@ -1,0 +1,2 @@
+<input #taskName type="text" placeholder="Note title" (change)="setNewTaskName(taskName.value)" [value]="task"/>
+<button (click)="onSave()">Add note</button>
