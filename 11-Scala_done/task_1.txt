@@ -1,0 +1,12 @@
+def capitalizeLastChars(str: String):String = {
+  if(str.length() < 4)
+    return str.map(_.toUpper)
+  else{
+    var prev: String = str.substring(0, str.length()-4)
+    var af: String = str.substring(str.length()-4, str.length());
+    return prev+af.map(_.toUpper)
+  }
+    
+}
+
+capitalizeLastChars("hello hello")

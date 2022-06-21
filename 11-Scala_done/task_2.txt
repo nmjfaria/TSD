@@ -1,0 +1,39 @@
+object Scala_Array {
+  def subArray(nums: Array[Int], k:Int): Array[Int] = {
+    var sum = 0;
+    var minSum = Integer.MAX_VALUE;
+    var last = 0;
+    var res = new Array[Int](3)
+    for ( i<- 0 to nums.length-1)
+    {
+			sum += nums(i);
+
+			if (i+1 >= k)
+			{
+				if (minSum > sum)
+				{
+					minSum = sum 
+					last = i;
+				}
+
+				sum -= nums(i + 1 - k);
+			}
+		}
+		
+    res(0) = last - k + 1;
+    res(1) = last;
+    res(2) = minSum;
+    res;
+  }
+
+  def main(args: Array[String]): Unit = {
+    val nums = Array(1, 2, 3, 4, 5, 6, 7, 8, 9,10);
+    println("Original array:")
+    for (x <- nums) {
+      print(s"${x}, ")
+    }
+    val n = 5;
+    val res = subArray(nums, n);
+    println(s"\nSub-array from ${res(0)} to ${res(1)} and sum is: ${res(2)}");  
+  }
+}
